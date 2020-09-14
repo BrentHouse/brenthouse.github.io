@@ -15,6 +15,13 @@
 
    Copyright (c) 2015, Christian Thalmann and the Cormorant Project Authors
    Source: https://github.com/CatharsisFonts/Cormorant/
+   Tag: v3.601
+
+   NOTE: The upstream WOFF2 files were not updated in v3.601.
+   These files were generated with `woff2_compress` from the
+   released OTF files.
+   For confirmation, sha256 checksums of the released OTF files
+   are listed in in <cormorant/source-checksums.txt>.
 
    SIL Open Font License, Version 1.1
    See <cormorant/OFL.txt>.
