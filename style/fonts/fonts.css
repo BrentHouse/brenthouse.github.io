@@ -13,7 +13,7 @@
 /*
    Cormorant font family
 
-   Copyright (c) 2015, Christian Thalmann and the Cormorant Project Authors
+   Copyright (c) 2015 Christian Thalmann and the Cormorant Project Authors
    Source: https://github.com/CatharsisFonts/Cormorant/
    Tag: v3.601
 
@@ -59,9 +59,9 @@
 }
 
 /*
-  Bravura & Bravura Text font family
+  Bravura & Bravura Text font families
 
-  Copyright © 2015, Steinberg Media Technologies GmbH,
+  Copyright © 2015 Steinberg Media Technologies GmbH,
   with Reserved Font Name "Bravura".
   Source: https://github.com/steinbergmedia/bravura/
 
@@ -110,5 +110,24 @@
     font-family: "Keter YG";
     font-weight: bold;
     src: url("keter/KeterYG-Bold.woff2") format("woff2");
+}
+
+/*
+  Fira Sans & Fira Mono font families
+
+  Copyright (c) 2012–2018 The Mozilla Foundation, Telefonica S.A.,
+  Carrois Corporate GbR, bBox Type GmbH, and contributors
+
+  SIL Open Font License, Version 1.1
+
+  See <fira/README.md> for complicated details about the
+  source and version used.
+
+*/
+
+@font-face {
+    font-family: "Fira Sans";
+    font-weight: regular;
+    src: url("fira/FiraSans-Regular.woff2") format("woff2");
 }
 
