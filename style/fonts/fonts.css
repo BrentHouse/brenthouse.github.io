@@ -34,14 +34,16 @@
   font-family: "Cormorant";
   font-weight: normal;
   font-style: normal;
-  src: url("cormorant/Cormorant-Regular.woff2") format("woff2");
+  /* src: url("cormorant/Cormorant-Regular.woff2") format("woff2"); */
+  src: url("cormorant/Cormorant-Medium.woff2") format("woff2");
 }
 
 @font-face {
   font-family: "Cormorant";
   font-weight: normal;
   font-style: italic;
-  src: url("cormorant/Cormorant-Italic.woff2") format("woff2");
+  /* or Cormorant-Italic.woff2 */
+  src: url("cormorant/Cormorant-MediumItalic.woff2") format("woff2");
 }
 
 @font-face {
@@ -109,6 +111,7 @@
 @font-face {
     font-family: "Keter YG";
     font-weight: bold;
+    font-style: normal;
     src: url("keter/KeterYG-Bold.woff2") format("woff2");
 }
 
@@ -128,6 +131,41 @@
 @font-face {
     font-family: "Fira Sans";
     font-weight: regular;
+    font-style: normal;
     src: url("fira/FiraSans-Regular.woff2") format("woff2");
 }
 
+@font-face {
+    font-family: "Fira Sans";
+    font-weight: regular;
+    font-style: italic;
+    src: url("fira/FiraSans-Italic.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Fira Sans";
+    font-weight: bold;
+    font-style: normal;
+    src: url("fira/FiraSans-Bold.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Fira Sans";
+    font-weight: bold;
+    font-style: italic;
+    src: url("fira/FiraSans-BoldItalic.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Fira Sans";
+    font-weight: 300;
+    font-style: normal;
+    src: url("fira/FiraSans-Light.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Fira Sans";
+    font-weight: 300;
+    font-style: italic;
+    src: url("fira/FiraSans-LightItalic.woff2") format("woff2");
+}
