@@ -58,7 +58,7 @@ header.site-header {
     grid-template-areas: "logo brent-house"
                          "logo episcopal-at-uchicago";
     width: 100%;
-    background-color: rgba(64,126,201,0.5);
+    background-color: rgb(91,150,173); /* official tint, contrast 6.41:1 */
     /* 0.4rem is usually 8 px, like default body margin */
     padding: 0.5rem;
 }
