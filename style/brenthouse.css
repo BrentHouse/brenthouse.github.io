@@ -26,15 +26,20 @@
     */
 }
 
+body {
+    margin: 0px;
+}
+
+body > * {
+    box-sizing: border-box; /* so 100% widths work right */
+}
+
 a:link, a:visited, a:hover, a:active {
     color: var(--maroon-text);
     font-weight: bold;
 }
 
-p, ul, ol, figcaption, summary,
-div.chant-svg-container,
-.compound-rubric,
-div.dialog-container {
+p, ul, ol, figcaption, summary {
     margin-top: var(--parskip);
     margin-bottom: var(--parskip);
 }
@@ -49,9 +54,13 @@ li {
 header.site-header {
     display: grid;
     grid-template-columns: auto 1fr;
-    grid-column-gap: 1em;
+    grid-column-gap: 1rem;
     grid-template-areas: "logo brent-house"
                          "logo episcopal-at-uchicago";
+    width: 100%;
+    background-color: rgba(64,126,201,0.5);
+    /* 0.4rem is usually 8 px, like default body margin */
+    padding: 0.5rem;
 }
 
 header.site-header > h1 {
@@ -65,6 +74,7 @@ header.site-header > h1 {
 header.site-header > h1 + p {
     grid-area: episcopal-at-uchicago;
     margin-top: 0px;
+    margin-bottom: 0px;
     font-size: var(--larger-font-size);
 }
 
@@ -72,12 +82,25 @@ header.site-header > img {
     grid-area: logo;
     max-width: 30vw; /* calc(var(--the-max-width) / 3); */
     max-height: 5rem;
+    align-self: center;
 }
 
 /*  */
 
-main p, main h2, main h3 {
+main {
+    padding: 0.5rem;
+}
+
+main h2,
+main h3,
+main p,
+main ul,
+main ol {
     max-width: var(--the-max-width);
+}
+
+ul, ol {
+    box-sizing: border-box;
 }
 
 h2 {
@@ -88,10 +111,50 @@ h2 {
     font-weight: normal;
 }
 
+h2:first-child {
+    margin-top: 0px;
+}
+
 h3 {
     font-size: var(--larger-font-size);
     margin-bottom: var(--parskip);
     margin-top: calc(var(--parskip) * 2);
     font-family: "Fira Sans", sans;
     font-weight: 300;
+}
+
+/*  */
+
+div.pandemic-update {
+    box-sizing: border-box;
+    padding: 0.5rem;
+    margin: var(--parskip) 1rem;
+    max-width: calc(var(--the-max-width) - 2rem);
+    border: 0.1rem solid var(--maroon-solid);
+    border-radius: 1rem;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-column-gap: 1rem;
+    grid-template-areas: "asclepius content";
+    align-items: center;
+}
+
+.pandemic-update > img {
+    grid-area: asclepius;
+    height: 5rem;
+}
+
+.pandemic-update > div {
+    grid-area: content;
+}
+
+.pandemic-update > div > p:first-child {
+    margin-top: 0px;
+    font-family: "Fira Sans", sans;
+    font-weight: 300;
+    color: var(--maroon-text);
+}
+
+.pandemic-update > div > :last-child {
+    margin-bottom: 0px;
 }
