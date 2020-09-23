@@ -5,7 +5,7 @@
     --h2-size: 1.35rem;
     --larger-font-size: 1.15rem;
     --smaller-font-size: 0.9rem;
-    --parskip: 0.6rem;
+    --parskip: 0.6rem; /* TODO: might be better as rellative em */
     --tighter-parskip: calc(var(--parskip) / 2); /* for li and dialog elems *
     /* https://material.io/design/color/text-legibility.html */
     --black-text-color: rgba(0, 0, 0, 0.87);
@@ -16,8 +16,7 @@
     font-family: "Cormorant", serif;
     line-height: var(--the-line-height);
     text-rendering: optimizeLegibility;
-    font-variant-numeric: proportional-nums;
-    font-variant-numeric: lining-nums;
+    font-variant-numeric: lining-nums proportional-nums;
     color: var(--black-text-color);
     /*
       NOTE: don't use
@@ -28,6 +27,7 @@
 
 body {
     margin: 0px;
+    max-width: 100vw;
 }
 
 body > * {
@@ -78,11 +78,14 @@ header.site-header > h1 + p {
     font-size: var(--larger-font-size);
 }
 
-header.site-header > img {
+header.site-header > .site-logo {
     grid-area: logo;
+    align-self: center;
+}
+
+header.site-header > .site-logo img {
     max-width: 30vw; /* calc(var(--the-max-width) / 3); */
     max-height: 5rem;
-    align-self: center;
 }
 
 /*  */
