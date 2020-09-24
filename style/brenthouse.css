@@ -40,12 +40,12 @@ a:link, a:visited, a:hover, a:active {
 }
 
 p, ul, ol, figcaption, summary {
-    margin-top: var(--parskip);
+    margin-top: 0px; /* var(--parskip); */
     margin-bottom: var(--parskip);
 }
 
 li {
-    margin-top: var(--tighter-parskip);
+    margin-top: 0px; /* var(--tighter-parskip); */
     margin-bottom: var(--tighter-parskip);
 }
 
@@ -90,15 +90,46 @@ header.site-header > .site-logo img {
 
 /*  */
 
-main {
-    padding: 0.5rem;
+.page-container {
+    width: 100%;
+    background-color: #ffffff;
+    display: grid;
+    grid-template-areas: ". .   .  header ."
+                         ". lhs .  content   .";
+    grid-template-columns:
+    1fr
+        auto
+        1rem
+        minmax(var(--the-max-width), calc(var(--the-max-width) * 1.66666))
+        1fr;
+    grid-column-gap: 0px;
 }
 
-main h2,
-main h3,
-main p,
-main ul,
-main ol {
+.page-container > header {
+    grid-area: header;
+}
+
+.page-container > aside {
+    grid-area: lhs;
+}
+
+.page-container > .page-body {
+    grid-area: content;
+}
+
+.floater {
+    width: calc(0.66666 * var(--the-max-width));
+    max-width: 50%;
+    float: right;
+    clear: both;
+    margin: 0px 0px 2rem 1rem;
+}
+
+h2,
+h3,
+.page-body p,
+.page-body ul,
+.page-body ol {
     max-width: var(--the-max-width);
 }
 
@@ -131,7 +162,7 @@ h3 {
 div.pandemic-update {
     box-sizing: border-box;
     padding: 0.5rem;
-    margin: var(--parskip) 1rem;
+    margin: 0px 1rem var(--parskip) 1rem;
     max-width: calc(var(--the-max-width) - 2rem);
     border: 0.1rem solid var(--maroon-solid);
     border-radius: 1rem;
