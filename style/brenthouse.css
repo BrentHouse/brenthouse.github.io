@@ -126,11 +126,33 @@ header.site-header > .site-logo img {
 
 .floater {
     /*display: none;  for testing */
-    width: calc(0.7 * var(--the-max-width));
     max-width: 50%;
     float: right;
     clear: both;
     margin: 0px 0px 2rem 1rem;
+}
+
+.floater > img {
+    width: calc(0.7 * var(--the-max-width));
+    max-width: 100%;
+}
+
+@media (max-width: 50rem) and (min-width: 40rem) {
+    .floater {
+        float: none;
+        max-width: 100%;
+        margin: 0px 0px var(--parskip) 0px;
+    }
+    .floater > img {
+        width: 100%;
+    }
+}
+
+@media (max-width: 40rem) {
+    .page-container {
+        grid-template-areas: "lhs" "header" "content";
+        grid-template-columns: minmax(auto,calc(100vw - 2rem));
+    }
 }
 
 h2,
