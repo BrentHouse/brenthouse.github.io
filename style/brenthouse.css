@@ -100,6 +100,9 @@ li {
 address {
   font-style: normal; }
 
+span.am-pm-abbrev {
+  font-variant-caps: all-small-caps; }
+
 /* Site header stuff */
 header.site-header {
   display: grid;
