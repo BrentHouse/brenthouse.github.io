@@ -82,7 +82,12 @@ a:link, a:visited, a:hover, a:active {
   color: var(--maroon-text);
   font-weight: bold; }
 
-p, ul, ol, figcaption, summary {
+p,
+ul,
+ol,
+address,
+figcaption,
+summary {
   margin-top: 0px;
   /* var(--parskip); */
   margin-bottom: var(--parskip); }
@@ -91,6 +96,9 @@ li {
   margin-top: 0px;
   /* var(--tighter-parskip); */
   margin-bottom: var(--tighter-parskip); }
+
+address {
+  font-style: normal; }
 
 /* Site header stuff */
 header.site-header {
@@ -124,7 +132,8 @@ header.site-header {
 .page-container {
   background-color: #ffffff;
   padding-top: 0.5rem;
-  padding-bottom: 0px;
+  padding-bottom: 1rem;
+  /* in addition to parskip from from final child */
   padding-left: var(--outer-horizontal-padding);
   display: grid;
   grid-template-areas: ". .   . header ." ". lhs . content .";
@@ -202,7 +211,8 @@ h2 {
   font-family: "Fira Sans", sans;
   font-weight: normal; }
 
-h2:first-child {
+h2:first-child,
+h3:first-child {
   margin-top: 0px; }
 
 h3 {
@@ -215,14 +225,15 @@ h3 {
 /*  */
 div.pandemic-update {
   box-sizing: border-box;
-  padding: 0.5rem;
-  margin: 0px 1rem var(--parskip) 1rem;
-  max-width: calc(var(--the-max-width) - 2rem);
+  --pandemic-update-gap: 1.25rem;
+  padding: var(--pandemic-update-gap);
+  margin: 0px var(--pandemic-update-gap) var(--parskip) var(--pandemic-update-gap);
+  max-width: calc(var(--the-max-width) - (2 * var(--pandemic-update-gap)));
   border: 0.1rem solid var(--maroon-solid);
   border-radius: 1rem;
   display: grid;
   grid-template-columns: auto 1fr;
-  grid-column-gap: 1rem;
+  grid-column-gap: var(--pandemic-update-gap);
   grid-template-areas: "asclepius content";
   align-items: center; }
   div.pandemic-update > img {
