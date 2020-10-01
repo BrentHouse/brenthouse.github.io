@@ -1,4 +1,7 @@
 /* ParentheCSS */
+:root.has-lhs p {
+  background-color: #ffe303; }
+
 /*
 NOTE:
 
@@ -108,7 +111,7 @@ header.site-header {
   display: grid;
   grid-template-columns: auto 1fr;
   grid-column-gap: 1rem;
-  grid-template-areas: "logo brent-house" "logo episcopal-at-uchicago";
+  grid-template-areas: "logo brent-house" "logo episcopal-at-uchicago" "site-nav site-nav";
   background-color: var(--half-episcopal-blue);
   /* 0.4rem is usually 8 px, like default body margin */
   padding-bottom: 0.5rem; }
@@ -130,6 +133,8 @@ header.site-header {
       max-width: 30vw;
       /* calc(var(--the-max-width) / 3); */
       max-height: 5rem; }
+  header.site-header > nav.site-nav {
+    grid-area: site-nav; }
 
 /*  */
 .page-container {
