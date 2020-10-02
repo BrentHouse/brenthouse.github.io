@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* ParentheCSS */
 /*
 NOTE:
@@ -216,37 +217,60 @@ main {
   system: cyclic;
   symbols: ""; }
 @counter-style page-nav-depth-style {
+  /* TODO: `speak-as` */
   system: additive;
   range: 3 infinite;
-  additive-symbols: 2 ">", 1 " ";
+  additive-symbols: 2 "▶", 1 " ";
   fallback: empty-counter-style;
  /* 
     `suffix` is only used for `::marker`:
     https://www.w3.org/TR/css-counter-styles-3/#counter-style-suffix
-    `::marker` isn't a good choice b/c of a bug from 2000-04-22 (really):
+    `::marker` isn’t a good choice b/c of a bug from 2000-04-22 (really):
     https://bugzilla.mozilla.org/show_bug.cgi?id=36854
     This is an exceptionally annoying workaround.
 */ }
 main > aside > nav.page-nav {
-  counter-reset: page-nav-depth -1; }
+  counter-reset: page-nav-depth -1;
+ /*
+   position: sticky;
+   top: 0;
+*/
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; }
+  main > aside > nav.page-nav > ol {
+    position: sticky;
+    bottom: 0; }
   main > aside > nav.page-nav ol {
     counter-increment: page-nav-depth 2;
     list-style-type: none;
-    padding: 0px; }
+    padding: 0px;
+    margin: 0px; }
   main > aside > nav.page-nav ol::after {
     counter-increment: page-nav-depth -2;
     content: "";
     /* needed or the effect is dropped */ }
+  main > aside > nav.page-nav li {
+    margin: 0px;
+    padding: 0px; }
   main > aside > nav.page-nav a:link, main > aside > nav.page-nav a:visited {
     display: flex;
-    font-family: "Fira Sans", sans;
-    font-weight: 300;
     text-decoration: none;
-    color: var(--solid-episcopal-blue); }
+    color: var(--solid-episcopal-blue);
+    padding: calc(var(--tighter-parskip) / 2) var(--tighter-parskip); }
     main > aside > nav.page-nav a:link > :first-child, main > aside > nav.page-nav a:visited > :first-child {
-      display: block; }
+      display: block;
+      flex: 1 0px;
+      /* consume whatever space is left */
+      font-family: "Fira Sans", sans;
+      font-weight: 300; }
+  main > aside > nav.page-nav > ol > li:not(:first-child) > a:link {
+    padding-top: calc(var(--parskip) * 2); }
   main > aside > nav.page-nav a:link::before {
     display: block;
+    flex: 0 max-content;
+    /* fixed to needed size */
     white-space: pre;
     content: counter(page-nav-depth,page-nav-depth-style); }
   main > aside > nav.page-nav a:hover, main > aside > nav.page-nav a:active {
