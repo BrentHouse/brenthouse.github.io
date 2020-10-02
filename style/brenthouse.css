@@ -1,7 +1,4 @@
 /* ParentheCSS */
-:root.has-lhs p {
-  background-color: #ffe303; }
-
 /*
 NOTE:
 
@@ -50,8 +47,9 @@ That makes all of this annoying.
   --black-text-color: rgba(0, 0, 0, 0.87);
   --maroon-solid: rgba(128, 0, 0, 1.0);
   --maroon-text: rgba(128, 0, 0, 0.87);
-  --half-episcopal-blue: rgba(129,182,219,1.0);
-  /* = (3,108,182,0.5) on white */
+  --solid-episcopal-blue: rgba(3, 108, 182, 1.0);
+  --half-episcopal-blue: rgba(129, 182, 219, 1.0);
+  /* cf. (3,108,182,0.5) */
   /* */
   font-family: "Cormorant", serif;
   line-height: var(--the-line-height);
@@ -135,6 +133,34 @@ header.site-header {
       max-height: 5rem; }
   header.site-header > nav.site-nav {
     grid-area: site-nav; }
+    header.site-header > nav.site-nav > ul {
+      list-style: none;
+      padding: 0px;
+      margin: 0px;
+      max-width: 100%;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: stretch;
+      justify-content: space-evenly; }
+      header.site-header > nav.site-nav > ul > li {
+        display: block;
+        /* flex: 1; */
+        margin: 0px 1rem; }
+        header.site-header > nav.site-nav > ul > li > a:link, header.site-header > nav.site-nav > ul > li > a:visited {
+          display: block;
+          box-sizing: border-box;
+          height: 100%;
+          width: 8.5rem;
+          text-align: center;
+          color: white;
+          background-color: var(--solid-episcopal-blue);
+          border: 0.1rem solid black;
+          border-radius: calc(2 * var(--tighter-parskip));
+          padding: var(--tighter-parskip);
+          font-family: "Fira Sans", sans;
+          font-weight: normal;
+          text-decoration: none; }
 
 /*  */
 .page-container {
