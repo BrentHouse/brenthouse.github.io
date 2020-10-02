@@ -45,6 +45,7 @@ That makes all of this annoying.
   /* TODO: might be better as rellative em */
   --tighter-parskip: calc(var(--parskip) / 2);
   /* for li and dialog elems */
+  --body-part-border-width: 0.1rem;
   /* https://material.io/design/color/text-legibility.html */
   --black-text-color: rgba(0, 0, 0, 0.87);
   --maroon-solid: rgba(128, 0, 0, 1.0);
@@ -73,12 +74,12 @@ body > * {
   box-sizing: border-box;
   /* so 100% widths work right */
   width: 100%;
-  box-sizing: border-box;
-  padding-right: var(--outer-horizontal-padding); }
+  box-sizing: border-box; }
 
 body > header.site-header,
-body > nav.site-nav,
+body > main,
 body > footer {
+  padding-right: var(--lhs-offset-padding);
   padding-left: var(--lhs-offset-padding); }
 
 body > header.site-header,
@@ -138,11 +139,11 @@ header.site-header {
       /* calc(var(--the-max-width) / 3); */
       max-height: 5rem; }
 
+body > :not(:first-child) {
+  border-top: var(--body-part-border-width) solid black; }
+
 body > nav.site-nav {
-  /* grid-area: site-nav; */
-  background-color: var(--solid-episcopal-blue);
-  border-top: 0.1rem solid black;
-  border-bottom: 0.1rem solid black; }
+  background-color: var(--solid-episcopal-blue); }
   body > nav.site-nav > ul {
     list-style: none;
     padding: 0px;
@@ -150,50 +151,65 @@ body > nav.site-nav {
     max-width: 100%;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-items: stretch;
-    justify-content: flex-start; }
+    justify-content: stretch; }
     body > nav.site-nav > ul > li {
-      flex: 1;
+      /*flex: 1;*/
       display: block;
       box-sizing: border-box;
       margin: 0px; }
       body > nav.site-nav > ul > li > a:link, body > nav.site-nav > ul > li > a:visited {
         display: block;
         box-sizing: border-box;
-        /*height: 100%;
-        min-width: min-content;
-        max-width: max-content;
-        width: 6rem;
-        text-align: center;*/
         color: white;
-        /*background-color: var(--solid-episcopal-blue);*/
-        /*border: 0.1rem solid black;
-        border-radius: calc(2 * var(--tighter-parskip));*/
-        padding: 0.5rem;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
         font-family: "Fira Sans", sans;
         font-weight: normal;
         text-decoration: none; }
+      body > nav.site-nav > ul > li > a:hover, body > nav.site-nav > ul > li > a:active {
+        background-color: var(--maroon-solid); }
+      body > nav.site-nav > ul > li:first-child {
+        flex: 1 auto;
+        text-align: left;
+        border-left: none; }
+        body > nav.site-nav > ul > li:first-child > a:link {
+          padding-left: var(--lhs-offset-padding);
+          padding-right: 1rem; }
+      body > nav.site-nav > ul > li:not(:first-child):not(:last-child) {
+        flex: 2 auto;
+        text-align: center; }
+        body > nav.site-nav > ul > li:not(:first-child):not(:last-child) > a:link {
+          padding-left: 1rem;
+          padding-right: 1rem; }
+      body > nav.site-nav > ul > li:last-child {
+        flex: 1 auto;
+        text-align: right; }
+        body > nav.site-nav > ul > li:last-child > a:link {
+          padding-left: 1rem;
+          padding-right: var(--lhs-offset-padding); }
+      body > nav.site-nav > ul > li:not(:first-child) {
+        border-left: calc(var(--body-part-border-width) / 2) solid black; }
 
 /*  */
-.page-container {
+main {
   background-color: #ffffff;
   padding-top: 0.5rem;
   padding-bottom: 1rem;
   /* in addition to parskip from from final child */
-  padding-left: var(--outer-horizontal-padding);
   display: grid;
-  grid-template-areas: ". .   . header ." ". lhs . content .";
-  grid-template-columns: 1fr minmax(var(--lhs-min-width), var(--lhs-max-width)) minmax(var(--gutter-min-width), var(--gutter-max-width)) minmax(var(--page-body-min-width), var(--page-body-max-width)) 1fr;
+  grid-template-areas: ".   . header " "lhs . content";
+  grid-template-columns: minmax(var(--lhs-min-width), var(--lhs-max-width)) minmax(var(--gutter-min-width), var(--gutter-max-width)) minmax(var(--page-body-min-width), var(--page-body-max-width));
   grid-gap: 0px; }
-  .page-container > header {
+  main > header {
     grid-area: header;
     max-width: var(--page-body-max-width); }
-  .page-container > aside {
+  main > aside {
     grid-area: lhs;
     max-width: var(--lhs-max-width);
     text-align: center; }
-  .page-container > .page-body {
+  main > .page-body {
     grid-area: content;
     max-width: var(--page-body-max-width); }
 
