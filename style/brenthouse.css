@@ -48,6 +48,7 @@ That makes all of this annoying.
   /* for li and dialog elems */
   --body-part-border-width: 0.1rem;
   --pandemic-update-gap: 1.25rem;
+  --pandemic-update-border-radius: 1rem;
   /* https://material.io/design/color/text-legibility.html */
   --black-text-color: rgba(0, 0, 0, 0.87);
   --maroon-solid: rgba(128, 0, 0, 1.0);
@@ -360,7 +361,7 @@ div.pandemic-update {
   box-sizing: border-box;
   padding: var(--pandemic-update-gap);
   border: 0.1rem solid var(--maroon-solid);
-  border-radius: 1rem;
+  border-radius: var(--pandemic-update-border-radius);
   margin: 0px var(--pandemic-update-gap) var(--parskip) var(--pandemic-update-gap);
   max-width: calc($max-width - (2 * var(--pandemic-update-gap)));
   display: grid;
@@ -385,21 +386,41 @@ figure.big-fig {
   box-sizing: border-box;
   padding: var(--pandemic-update-gap);
   border: 0.1rem solid var(--maroon-solid);
-  border-radius: 1rem;
+  border-radius: var(--pandemic-update-border-radius);
   margin: 0px var(--pandemic-update-gap) var(--parskip) var(--pandemic-update-gap);
   max-width: calc($max-width - (2 * var(--pandemic-update-gap))); }
   figure.big-fig > * {
     display: block;
-    box-sizing: border-box;
+    box-sizing: border-box; }
+  figure.big-fig > figcaption, figure.big-fig > :not(figcaption) video {
+    border: 0.1rem solid black;
+    border-radius: var(--pandemic-update-border-radius); }
+  figure.big-fig > figcaption {
+    width: 100%;
+    margin: 0;
+    padding: var(--parskip) calc((100% - var(--the-max-width)) / 2);
+    background-color: var(--half-episcopal-blue); }
+  figure.big-fig > :not(figcaption) {
+    max-width: 100%;
     margin-left: auto;
     margin-right: auto; }
-  figure.big-fig > figcaption {
-    max-width: var(--the-max-width); }
-  figure.big-fig > .aspect-ratio-outer-wrapper {
-    max-width: 100%; }
-    figure.big-fig > .aspect-ratio-outer-wrapper video {
+    figure.big-fig > :not(figcaption) video {
       object-position: center bottom;
       object-fit: contain; }
+  figure.big-fig > figcaption:first-child, figure.big-fig > :not(figcaption):first-child video {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom: none; }
+  figure.big-fig > :not(figcaption):first-child, figure.big-fig > :not(figcaption):first-child * {
+    border-top-left-radius: var(--pandemic-update-border-radius);
+    border-top-right-radius: var(--pandemic-update-border-radius); }
+  figure.big-fig > figcaption:last-child, figure.big-fig > :not(figcaption):last-child video {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-top: none; }
+  figure.big-fig > :not(figcaption):last-child, figure.big-fig > :not(figcaption):last-child * {
+    border-bottom-left-radius: var(--pandemic-update-border-radius);
+    border-bottom-right-radius: var(--pandemic-update-border-radius); }
 
 .aspect-ratio-box {
   box-sizing: border-box;
