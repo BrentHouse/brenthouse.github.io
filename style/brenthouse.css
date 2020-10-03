@@ -165,9 +165,10 @@ body > nav.site-nav {
       body > nav.site-nav > ul > li > a:link, body > nav.site-nav > ul > li > a:visited {
         display: block;
         box-sizing: border-box;
-        color: white;
+        height: 100%;
         padding-top: 0.5rem;
         padding-bottom: 0.5rem;
+        color: white;
         font-family: "Fira Sans", sans;
         font-weight: normal;
         text-decoration: none; }
@@ -398,8 +399,13 @@ figure.big-fig {
   figure.big-fig > figcaption {
     width: 100%;
     margin: 0;
-    padding: var(--parskip) calc((100% - var(--the-max-width)) / 2);
-    background-color: var(--half-episcopal-blue); }
+    background-color: var(--half-episcopal-blue);
+    padding: var(--parskip); }
+    figure.big-fig > figcaption > span:only-child {
+      display: block;
+      box-sizing: border-box;
+      max-width: calc(var(--the-max-width) /* HACK: like the pandemic update box contents (looks better for short paragraphs) */ - (4 * var(--pandemic-update-gap)));
+      margin: auto; }
   figure.big-fig > :not(figcaption) {
     max-width: 100%;
     margin-left: auto;
