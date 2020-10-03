@@ -211,12 +211,20 @@ main {
   main > header {
     grid-area: header;
     max-width: var(--page-body-max-width); }
+    main > header h2 {
+      margin-top: 0; }
   main > aside {
     grid-area: lhs;
     max-width: var(--lhs-max-width); }
   main > div.page-body {
     grid-area: content;
     max-width: var(--page-body-max-width); }
+    main > div.page-body > :first-child {
+      margin-top: 0;
+     /*
+        If the first child has an upper margin,
+        it won't collapse with the margin of the `h2`.
+    */ }
 
 @counter-style empty-counter-style {
   system: cyclic;
@@ -227,7 +235,7 @@ main {
   range: 3 infinite;
   additive-symbols: 2 "▶", 1 " ";
   fallback: empty-counter-style;
- /* 
+ /*
     `suffix` is only used for `::marker`:
     https://www.w3.org/TR/css-counter-styles-3/#counter-style-suffix
     `::marker` isn’t a good choice b/c of a bug from 2000-04-22 (really):
@@ -345,10 +353,6 @@ h2 {
   margin-top: calc(var(--parskip) * 3.5);
   font-family: "Fira Sans", sans;
   font-weight: normal; }
-
-h2:first-child,
-h3:first-child {
-  margin-top: 0px; }
 
 h3 {
   font-size: var(--larger-font-size);
