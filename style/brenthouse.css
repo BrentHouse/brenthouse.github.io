@@ -1,6 +1,39 @@
 @charset "UTF-8";
 /* ParentheCSS */
 /*
+  headings made with DrRacket’s “insert large letters”
+  font: Fira Mono
+  large: size 17;
+  small: size 13;
+*/
+/*
+  IDEA:
+  The New York Times is doing mobile navigation
+  using a single, sticky horizontal navbar
+  at 100vw with `overflow: scroll` for some pages:
+  I noticed it on a live updates page about
+  the presedent's covid diagnosis,
+  where it seemed to do in-page navigation.
+*/
+/*
+
+
+
+                                    ;;
+                                    ;;
+     ;     ;;  ;;    ;;      ;;    ;;;;;
+    ;;;     ; ;;;   ;  ;    ;  ;    ;;
+     ;      ;;      ;  ;    ;  ;    ;;
+            ;;     ;;  ;;  ;;  ;;   ;;
+     ;      ;;      ;  ;    ;  ;    ;;
+    ;;;     ;;      ;  ;    ;  ;     ;
+     ;     ;;;;      ;;      ;;       ;;;
+
+
+
+
+*/
+/*
 NOTE:
 
 Setting `font-size` on `:root` does NOT change the meaning
@@ -9,7 +42,12 @@ Also, `rem` in `@media` queries is broken in Safari,
 but `em` is defined to be the same as `rem` there in non-broken
 browsers, so just use `em`.
 That makes all of this annoying.
+*/
+/*
+FIXME:
 
+`@media` rules and breakpoints are defined under the `floater` widget.
+Want a better means of abstraction ...
 */
 /* em/rem :: Typically 20px, but accessable. */
 /* 27.9rem = c. 558px */
@@ -68,27 +106,26 @@ That makes all of this annoying.
     It does a very strange "st" ligature with Cormorant.
   */ }
 
-body {
-  background-color: var(--half-episcopal-blue);
-  margin: 0px;
-  max-width: 100vw; }
+/*
 
-body > * {
-  box-sizing: border-box;
-  /* so 100% widths work right */
-  width: 100%;
-  box-sizing: border-box; }
 
-body > header.site-header,
-body > main,
-body > footer {
-  padding-right: var(--lhs-offset-padding);
-  padding-left: var(--lhs-offset-padding); }
+                                                  ;;;;
+                                                    ;;
+         ;                                          ;;
+     ;;;;;   ;;    ;; ;;     ;;    ;;  ;;  ;;;;     ;;
+    ;  ;    ;  ;   ;;; ;    ;  ;    ; ;;;      ;    ;;
+   ;;  ;;   ;  ;   ;;  ;;   ;  ;    ;;         ;;   ;;
+    ;  ;   ;;;;;;  ;;  ;;  ;;;;;;   ;;      ;;;;;   ;;
+     ;;     ;      ;;  ;;   ;       ;;     ;   ;;   ;;
+   ;;       ;  ;   ;;  ;;   ;  ;    ;;    ;;   ;;    ;
+    ;;;      ;;    ;;  ;;    ;;    ;;;;     ;;; ;    ;;;
+       ;;
+  ;;   ;
+    ;;;
 
-body > header.site-header,
-body > footer {
-  padding-top: 0.5rem; }
 
+
+*/
 a:link, a:visited, a:hover, a:active {
   color: var(--maroon-text);
   font-weight: bold; }
@@ -114,6 +151,134 @@ address {
 span.am-pm-abbrev {
   font-variant-caps: all-small-caps; }
 
+h2,
+h3,
+h4,
+p,
+ul,
+ol {
+  max-width: var(--the-max-width); }
+
+ul,
+ol {
+  box-sizing: border-box; }
+
+h2 {
+  margin-bottom: var(--parskip);
+  margin-top: calc(var(--parskip) * 3.5);
+  /* never used */
+  font-size: var(--h2-size);
+  font-family: "Fira Sans", sans;
+  font-weight: normal; }
+
+h3 {
+  margin-bottom: var(--parskip);
+  margin-top: calc(var(--parskip) * 4);
+  /* was: 2 */
+  font-size: var(--larger-font-size);
+  font-family: "Fira Sans", sans;
+  font-weight: 300; }
+
+h4 {
+  margin-bottom: var(--parskip);
+  margin-top: calc(var(--parskip) * 2);
+  font-size: var(--smaller-font-size);
+  font-family: "Fira Sans", sans;
+  font-weight: bold; }
+
+header.event-header > :first-child {
+  margin-bottom: var(--tighter-parskip); }
+header.event-header > :last-child {
+  box-sizing: border-box;
+  max-width: var(--the-max-width);
+  border-style: solid;
+  border-color: var(--solid-episcopal-blue);
+  --nonleft-border-width: calc(var(--pandemic-update-gap) / 8);
+  border-width: var(--nonleft-border-width) var(--nonleft-border-width) var(--nonleft-border-width) calc(var(--pandemic-update-gap) / 2);
+  padding: var(--tighter-parskip) var(--pandemic-update-gap);
+  margin-bottom: var(--parskip); }
+  header.event-header > :last-child > p:first-child {
+    font-family: "Fira Sans", sans;
+    font-weight: 300;
+    color: var(--solid-episcopal-blue); }
+  header.event-header > :last-child > :last-child {
+    margin-bottom: 0; }
+
+/*
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+   ;;;;
+   ;;;;
+     ;;                                                ;;
+     ;;                                                ;;
+     ;;         ;      ;;     ;;    ;;     ;;    ;;  ;;;;;;;
+     ;;       ;;;;;     ;     ;    ;;;;    ;;    ;;  ;;;;;;;
+     ;;           ;     ;     ;   ;    ;   ;;    ;;    ;;
+     ;;         ;;;;     ;   ;    ;    ;   ;;    ;;    ;;
+     ;;       ;;;;;;     ;   ;   ;;    ;;  ;;    ;;    ;;
+     ;;       ;   ;;     ;   ;    ;    ;   ;;    ;;    ;;
+      ;      ;;   ;       ; ;     ;    ;    ;   ;;;     ;
+      ;;;;    ;;;; ;;     ; ;      ;;;;     ;;;; ;;     ;;;;;
+       ;;      ;   ;       ;        ;;       ;;  ;;       ;
+                           ;
+                          ;
+                        ;;
+
+*/
+/*
+
+           ;;                  ;;
+           ;;                  ;;
+        ;  ;;                  ;;          ;
+       ;   ;;;;      ;;     ;;;;; ;     ;   ;
+     ;;    ;;  ;    ;  ;   ;   ;;  ;   ;     ;;
+   ;;      ;;  ;    ;  ;   ;   ;;  ;   ;       ;;
+    ;;     ;;  ;;  ;;  ;; ;;   ;;   ;  ;      ;;
+      ;    ;;  ;    ;  ;   ;   ;;   ; ;      ;
+       ;;  ;;  ;    ;  ;   ;  ;;;   ; ;    ;;
+           ; ;;      ;;     ;;  ;    ;
+                                     ;
+                                    ;
+                                   ;
+
+*/
+body {
+  background-color: var(--half-episcopal-blue);
+  margin: 0px;
+  max-width: 100vw; }
+  body > * {
+    box-sizing: border-box;
+    /* so 100% widths work right */
+    width: 100%; }
+  body > header.site-header,
+  body > main,
+  body > footer {
+    padding-right: var(--lhs-offset-padding);
+    padding-left: var(--lhs-offset-padding); }
+  body > header.site-header,
+  body > footer {
+    padding-top: 0.5rem; }
+
+/*
+
+   ;;                          ;;
+   ;;                          ;;
+   ;;                          ;;
+   ;; ;;     ;;    ;;;;     ;;;;;    ;;    ;;  ;;
+   ;;; ;    ;  ;       ;   ;   ;;   ;  ;    ; ;;;
+   ;;  ;;   ;  ;       ;;  ;   ;;   ;  ;    ;;
+   ;;  ;;  ;;;;;;   ;;;;; ;;   ;;  ;;;;;;   ;;
+   ;;  ;;   ;      ;   ;;  ;   ;;   ;       ;;
+   ;;  ;;   ;  ;  ;;   ;;  ;  ;;;   ;  ;    ;;
+   ;;  ;;    ;;     ;;; ;   ;;  ;    ;;    ;;;;
+
+
+*/
 /* Site header stuff */
 header.site-header {
   display: grid;
@@ -142,9 +307,21 @@ header.site-header {
       /* calc(var(--the-max-width) / 3); */
       max-height: 5rem; }
 
-body > :not(:first-child) {
-  border-top: var(--body-part-border-width) solid black; }
+/*
 
+             ;;
+                    ;;
+                    ;;
+     ;;;;  ;;;;    ;;;;;     ;;            ;; ;;   ;;;;   ;     ;
+   ;;  ;     ;;     ;;      ;  ;           ;;; ;       ;   ;   ;
+    ;        ;;     ;;      ;  ;   ;;;;;   ;;  ;;      ;;  ;   ;
+     ;;      ;;     ;;     ;;;;;;          ;;  ;;   ;;;;;   ; ;
+       ;;    ;;     ;;      ;              ;;  ;;  ;   ;;   ; ;
+   ;   ;     ;;      ;      ;  ;           ;;  ;; ;;   ;;   ; ;
+    ;;;    ;;;;;;     ;;;    ;;            ;;  ;;   ;;; ;    ;
+
+
+*/
 body > nav.site-nav {
   background-color: var(--solid-episcopal-blue); }
   body > nav.site-nav > ul {
@@ -196,7 +373,21 @@ body > nav.site-nav {
       body > nav.site-nav > ul > li:not(:first-child) {
         border-left: calc(var(--body-part-border-width) / 2) solid black; }
 
-/*  */
+/*
+
+                     ;;
+
+
+  ;;;; ;;  ;;;;    ;;;;    ;; ;;
+  ;; ;; ;;     ;     ;;    ;;; ;
+  ;; ;; ;;     ;;    ;;    ;;  ;;
+  ;; ;; ;;  ;;;;;    ;;    ;;  ;;
+  ;; ;; ;; ;   ;;    ;;    ;;  ;;
+  ;; ;; ;;;;   ;;    ;;    ;;  ;;
+  ;; ;; ;;  ;;; ;  ;;;;;;  ;;  ;;
+
+
+*/
 main {
   background-color: #ffffff;
   padding-top: 0.5rem;
@@ -226,6 +417,23 @@ main {
         it won't collapse with the margin of the `h2`.
     */ }
 
+/*
+
+
+                         ;
+   ;;;;    ;;;;      ;;;;;   ;;            ;; ;;   ;;;;   ;     ;
+   ;;  ;       ;    ;  ;    ;  ;           ;;; ;       ;   ;   ;
+   ;;  ;       ;;  ;;  ;;   ;  ;   ;;;;;   ;;  ;;      ;;  ;   ;
+   ;;  ;;   ;;;;;   ;  ;   ;;;;;;          ;;  ;;   ;;;;;   ; ;
+   ;;  ;   ;   ;;    ;;     ;              ;;  ;;  ;   ;;   ; ;
+   ;;  ;  ;;   ;;  ;;       ;  ;           ;;  ;; ;;   ;;   ; ;
+   ;;;;     ;;; ;   ;;;      ;;            ;;  ;;   ;;; ;    ;
+   ;;                  ;;
+   ;;             ;;   ;
+   ;;               ;;;
+
+
+*/
 @counter-style empty-counter-style {
   system: cyclic;
   symbols: ""; }
@@ -293,75 +501,52 @@ main > aside > nav.page-nav {
     color: white;
     background-color: var(--solid-episcopal-blue); }
 
-.floater {
-  clear: both; }
+/*
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-.floater {
-  float: right;
-  max-width: 45%;
-  margin: 0px 0px 2rem 1rem; }
-  .floater > img {
-    width: calc(0.7 * var(--the-max-width));
-    max-width: 100%; }
 
-@media (max-width: 45.62575em) {
-  .floater {
-    float: none;
-    max-width: 100%;
-    margin: 0px 0px var(--parskip) 0px; }
-    .floater > img {
-      width: 100%; } }
-@media (max-width: 38.75em) {
-  .floater {
-    float: right;
-    max-width: 45%;
-    margin: 0px 0px 2rem 1rem; }
-    .floater > img {
-      width: calc(0.7 * var(--the-max-width));
-      max-width: 100%; }
+                ;            ;;
+                ;;           ;;
+                             ;;                        ;;
+                             ;;          ;             ;;
+  ;        ;  ;;;;;       ;  ;;     ;;;;;     ;;     ;;;;;;;      ;;
+   ;   ;   ;  ;;;;;      ;;;;;;    ;;;;;;;   ;;;;    ;;;;;;;    ;;;;;;
+   ;  ;;  ;      ;;     ;    ;;   ;    ;    ;    ;     ;;      ;;     ;
+   ;  ;;  ;      ;;     ;    ;;  ;;    ;;   ;;;;;;     ;;       ;
+   ;  ; ; ;      ;;    ;;    ;;   ;    ;   ;;;;;;;;    ;;        ;;;;
+   ; ;  ; ;      ;;     ;    ;;    ;;;;;    ;          ;;            ;;
+   ; ;  ; ;      ;;     ;    ;;    ;;;      ;           ;      ;     ;
+    ;;  ;;    ;;;;;;;   ;;;;;;;   ;;;;;      ;;;;;      ;;;;;   ;;;;;;
+    ;    ;    ;;;;;;;     ;  ;;     ;;;;      ;;          ;       ;;
+                                 ;;    ;;
+                                  ;;;;;;
+                                   ;;;
 
-  .page-container {
-    grid-template-areas: "lhs" "header" "content";
-    grid-template-columns: minmax(auto, calc(100vw - 2rem)); } }
-@media (max-width: 34.37575em) {
-  .floater {
-    float: none;
-    max-width: 100%;
-    margin: 0px 0px var(--parskip) 0px; }
-    .floater > img {
-      width: 100%; } }
-/* */
-body > footer {
-  /*background-color: var(--half-episcopal-blue);*/
-  display: flow-root; }
 
-/* */
-h2,
-h3,
-p,
-ul,
-ol {
-  max-width: var(--the-max-width); }
+*/
+/*
 
-ul,
-ol {
-  box-sizing: border-box; }
 
-h2 {
-  font-size: var(--h2-size);
-  margin-bottom: var(--parskip);
-  margin-top: calc(var(--parskip) * 3.5);
-  font-family: "Fira Sans", sans;
-  font-weight: normal; }
+                               ;;                    ;;
+                               ;;
+                               ;;
+   ;;;;    ;;;;    ;; ;;    ;;;;;    ;;   ;;;; ;;  ;;;;      ;;;
+   ;;  ;       ;   ;;; ;   ;   ;;   ;  ;  ;; ;; ;;   ;;     ;   ;
+   ;;  ;       ;;  ;;  ;;  ;   ;;   ;  ;  ;; ;; ;;   ;;     ;
+   ;;  ;;   ;;;;;  ;;  ;; ;;   ;;  ;;;;;; ;; ;; ;;   ;;    ;;
+   ;;  ;   ;   ;;  ;;  ;;  ;   ;;   ;     ;; ;; ;;   ;;     ;
+   ;;  ;  ;;   ;;  ;;  ;;  ;  ;;;   ;  ;  ;; ;; ;;   ;;     ;   ;
+   ;;;;     ;;; ;  ;;  ;;   ;;  ;    ;;   ;; ;; ;; ;;;;;;    ;;;
+   ;;
+   ;;
+   ;;
 
-h3 {
-  font-size: var(--larger-font-size);
-  margin-bottom: var(--parskip);
-  margin-top: calc(var(--parskip) * 2);
-  font-family: "Fira Sans", sans;
-  font-weight: 300; }
 
-/*  */
+*/
 div.pandemic-update {
   box-sizing: border-box;
   padding: var(--pandemic-update-gap);
@@ -387,6 +572,25 @@ div.pandemic-update {
     div.pandemic-update > div > :last-child {
       margin-bottom: 0px; }
 
+/*
+
+
+   ;;        ;;                       ;;;    ;;
+   ;;                                ;
+   ;;                    ;          ;;                   ;
+   ;;;;    ;;;;      ;;;;;          ;;     ;;;;      ;;;;;
+   ;;  ;     ;;     ;  ;           ;;;;;     ;;     ;  ;
+   ;;  ;     ;;    ;;  ;;  ;;;;;    ;;       ;;    ;;  ;;
+   ;;  ;;    ;;     ;  ;            ;;       ;;     ;  ;
+   ;;  ;     ;;      ;;             ;;       ;;      ;;
+   ;;  ;     ;;    ;;               ;;       ;;    ;;
+   ; ;;    ;;;;;;   ;;;             ;;     ;;;;;;   ;;;
+                       ;;                              ;;
+                  ;;   ;                          ;;   ;
+                    ;;;                             ;;;
+
+
+*/
 figure.big-fig {
   box-sizing: border-box;
   padding: var(--pandemic-update-gap);
@@ -432,7 +636,31 @@ figure.big-fig {
     border-bottom-left-radius: var(--pandemic-update-border-radius);
     border-bottom-right-radius: var(--pandemic-update-border-radius); }
 
+/*
+
+
+                          ;;
+    ;;      ;;;           ;;                       ;;;
+  ;;;;     ;              ;;                      ;   ;
+    ;;     ;              ;;;;   ;     ;          ;   ;
+    ;;     ;;;            ;;  ;   ;   ;          ;;   ;;
+    ;;    ;;  ;           ;;  ;   ;   ;           ;  ;;
+    ;;    ;;  ;;          ;;  ;;   ;  ;            ;; ;
+    ;;     ;  ;           ;;  ;    ; ;                ;
+    ;;     ;  ;           ;;  ;    ; ;               ;
+  ;;;;;;    ;;            ; ;;      ;              ;;
+                                    ;             ;
+                                   ;
+                                  ;
+
+
+*/
 .aspect-ratio-box {
+  /*
+    h/t
+    https://stackoverflow.com/a/10441480/2523780
+    https://medium.com/bleeding-edge/enforcing-an-aspect-ratio-on-an-html-element-in-react-and-css-27a13241c3d4
+  */
   box-sizing: border-box;
   width: 100%;
   height: 0;
@@ -456,5 +684,76 @@ figure.big-fig {
   .aspect-ratio-box.w1280h720 {
     max-width: 1280px;
     max-height: 720px; }
+
+/*
+
+
+      ;;; ;;;;
+     ;      ;;                      ;;
+    ;;      ;;                      ;;
+    ;;      ;;       ;;    ;;;;    ;;;;;     ;;    ;;  ;;
+   ;;;;;    ;;      ;  ;       ;    ;;      ;  ;    ; ;;;
+    ;;      ;;      ;  ;       ;;   ;;      ;  ;    ;;
+    ;;      ;;     ;;  ;;   ;;;;;   ;;     ;;;;;;   ;;
+    ;;      ;;      ;  ;   ;   ;;   ;;      ;       ;;
+    ;;       ;      ;  ;  ;;   ;;    ;      ;  ;    ;;
+    ;;       ;;;     ;;     ;;; ;     ;;;    ;;    ;;;;
+
+
+*/
+.floater {
+  clear: both; }
+
+.floater {
+  float: right;
+  max-width: 45%;
+  margin: 0px 0px 2rem 1rem; }
+  .floater > img {
+    width: calc(0.7 * var(--the-max-width));
+    max-width: 100%; }
+
+/*
+  Breakpoint states, from widest to narrowest:
+
+    1. multiple columns, `.floater`s float with text wrapping
+    2. multiple columns, `.floater`s fill whole body area
+    3. single column, `.floater`s float with text wrapping`
+    4. single column, `.floater`s fill whole body area
+
+  It would be nice to express #2 with:
+  ```
+        @media (max-width: x) and (min-width: y) { ... }
+  ```
+  but Firefox didn't smoothly transition from state #2 to state #3
+  if they are written that way.
+  Instead, we repeat `.floater`'s #1 style under the rule for #3.
+*/
+@media (max-width: 45.62575em) {
+  .floater {
+    float: none;
+    max-width: 100%;
+    margin: 0px 0px var(--parskip) 0px; }
+    .floater > img {
+      width: 100%; } }
+@media (max-width: 38.75em) {
+  .floater {
+    float: right;
+    max-width: 45%;
+    margin: 0px 0px 2rem 1rem; }
+    .floater > img {
+      width: calc(0.7 * var(--the-max-width));
+      max-width: 100%; }
+
+  .page-container {
+    grid-template-areas: "lhs" "header" "content";
+    grid-template-columns: minmax(auto, calc(100vw - 2rem)); } }
+@media (max-width: 34.37575em) {
+  .floater {
+    float: none;
+    max-width: 100%;
+    margin: 0px 0px var(--parskip) 0px; }
+    .floater > img {
+      width: 100%; } }
+/**/
 
 /*# sourceMappingURL=brenthouse.css.map */

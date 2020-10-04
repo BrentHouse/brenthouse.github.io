@@ -128,6 +128,22 @@
 
 */
 
+/* Light */
+@font-face {
+    font-family: "Fira Sans";
+    font-weight: 300;
+    font-style: normal;
+    src: url("fira/FiraSans-Light.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Fira Sans";
+    font-weight: 300;
+    font-style: italic;
+    src: url("fira/FiraSans-LightItalic.woff2") format("woff2");
+}
+
+/* Regular */
 @font-face {
     font-family: "Fira Sans";
     font-weight: regular;
@@ -142,6 +158,7 @@
     src: url("fira/FiraSans-Italic.woff2") format("woff2");
 }
 
+/* Bold */
 @font-face {
     font-family: "Fira Sans";
     font-weight: bold;
@@ -154,18 +171,4 @@
     font-weight: bold;
     font-style: italic;
     src: url("fira/FiraSans-BoldItalic.woff2") format("woff2");
-}
-
-@font-face {
-    font-family: "Fira Sans";
-    font-weight: 300;
-    font-style: normal;
-    src: url("fira/FiraSans-Light.woff2") format("woff2");
-}
-
-@font-face {
-    font-family: "Fira Sans";
-    font-weight: 300;
-    font-style: italic;
-    src: url("fira/FiraSans-LightItalic.woff2") format("woff2");
 }
