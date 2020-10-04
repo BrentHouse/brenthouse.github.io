@@ -186,23 +186,26 @@ h4 {
   font-family: "Fira Sans", sans;
   font-weight: bold; }
 
-header.event-header > :first-child {
-  margin-bottom: var(--tighter-parskip); }
-header.event-header > :last-child {
-  box-sizing: border-box;
-  max-width: var(--the-max-width);
-  border-style: solid;
-  border-color: var(--solid-episcopal-blue);
-  --nonleft-border-width: calc(var(--pandemic-update-gap) / 8);
-  border-width: var(--nonleft-border-width) var(--nonleft-border-width) var(--nonleft-border-width) calc(var(--pandemic-update-gap) / 2);
-  padding: var(--tighter-parskip) var(--pandemic-update-gap);
-  margin-bottom: var(--parskip); }
-  header.event-header > :last-child > p:first-child {
-    font-family: "Fira Sans", sans;
-    font-weight: 300;
-    color: var(--solid-episcopal-blue); }
-  header.event-header > :last-child > :last-child {
-    margin-bottom: 0; }
+header.event-header {
+  display: flow-root;
+  /* keeps the blue box from going under `.floater`s */ }
+  header.event-header > :first-child {
+    margin-bottom: var(--tighter-parskip); }
+  header.event-header > :last-child {
+    box-sizing: border-box;
+    max-width: var(--the-max-width);
+    border-style: solid;
+    border-color: var(--solid-episcopal-blue);
+    --nonleft-border-width: calc(var(--pandemic-update-gap) / 8);
+    border-width: var(--nonleft-border-width) var(--nonleft-border-width) var(--nonleft-border-width) calc(var(--pandemic-update-gap) / 2);
+    padding: var(--tighter-parskip) var(--pandemic-update-gap);
+    margin-bottom: var(--parskip); }
+    header.event-header > :last-child > p:first-child {
+      font-family: "Fira Sans", sans;
+      font-weight: 300;
+      color: var(--solid-episcopal-blue); }
+    header.event-header > :last-child > :last-child {
+      margin-bottom: 0; }
 
 /*
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
