@@ -437,28 +437,52 @@ main {
 
 
 */
+/*
+  IDEA:
+  use Photon SVG icon for nesting
+*/
+svg.photon-icon {
+  width: 1em;
+  height: 1em;
+  margin: calc((1em * (var(--the-line-height) - 1)) / 2) 0; }
+  svg.photon-icon * {
+    fill: currentColor; }
+
+/*
 @counter-style empty-counter-style {
-  system: cyclic;
-  symbols: ""; }
+    system: cyclic;
+    symbols: "";
+}
+
 @counter-style page-nav-depth-style {
-  /* TODO: `speak-as` */
-  system: additive;
-  range: 3 infinite;
-  additive-symbols: 2 "▶", 1 " ";
-  fallback: empty-counter-style;
- /*
-    `suffix` is only used for `::marker`:
-    https://www.w3.org/TR/css-counter-styles-3/#counter-style-suffix
-    `::marker` isn’t a good choice b/c of a bug from 2000-04-22 (really):
-    https://bugzilla.mozilla.org/show_bug.cgi?id=36854
-    This is an exceptionally annoying workaround.
-*/ }
+    /* TODO: `speak-as` * /
+    system: additive;
+    range: 3 infinite;
+    additive-symbols: 2 "▶", 1 " ";
+    fallback: empty-counter-style;
+    /*
+       `suffix` is only used for `::marker`:
+       https://www.w3.org/TR/css-counter-styles-3/#counter-style-suffix
+       `::marker` isn’t a good choice b/c of a bug from 2000-04-22 (really):
+       https://bugzilla.mozilla.org/show_bug.cgi?id=36854
+       This is an exceptionally annoying workaround.
+   * /
+}
+*/
 main > aside > nav.page-nav {
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  counter-reset: page-nav-depth -1; }
+  counter-reset: page-nav-depth -1;
+  /*
+      a:link::before {
+          display: block;
+          flex: 0 max-content; /* fixed to needed size * /
+          white-space: pre;
+          content: counter(page-nav-depth, page-nav-depth-style);
+      }
+  */ }
   main > aside > nav.page-nav > div.sticky-shell {
     position: sticky;
     bottom: 0;
@@ -484,6 +508,10 @@ main > aside > nav.page-nav {
     color: var(--solid-episcopal-blue);
     padding: calc(var(--tighter-parskip) / 2) var(--tighter-parskip); }
     main > aside > nav.page-nav a:link > :first-child, main > aside > nav.page-nav a:visited > :first-child {
+      flex: 0 max-content; }
+      main > aside > nav.page-nav a:link > :first-child.nested-page-nav, main > aside > nav.page-nav a:visited > :first-child.nested-page-nav {
+        padding: 0 0.25em; }
+    main > aside > nav.page-nav a:link > :last-child, main > aside > nav.page-nav a:visited > :last-child {
       display: block;
       flex: 1 0px;
       /* consume whatever space is left */
@@ -494,12 +522,6 @@ main > aside > nav.page-nav {
   main > aside > nav.page-nav > div.sticky-shell > ol > li:last-child > a:link {
     /* match baseline of RHS */
     padding-bottom: var(--parskip); }
-  main > aside > nav.page-nav a:link::before {
-    display: block;
-    flex: 0 max-content;
-    /* fixed to needed size */
-    white-space: pre;
-    content: counter(page-nav-depth,page-nav-depth-style); }
   main > aside > nav.page-nav a:hover, main > aside > nav.page-nav a:active {
     color: white;
     background-color: var(--solid-episcopal-blue); }
