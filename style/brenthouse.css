@@ -781,5 +781,17 @@ figure.big-fig {
     .floater > img {
       width: 100%; } }
 /**/
+.leadership-person {
+  /*display: flow-root;
+  clear: both;*/ }
+  .leadership-person > p:not(:last-of-type) {
+    margin-bottom: 0; }
+  .leadership-person > p:first-of-type {
+    font-style: italic; }
+  .leadership-person > p:nth-of-type(2) {
+    font-weight: bold; }
+  .leadership-person > .floater {
+    /*max-height: 12rem;*/
+    display: none; }
 
 /*# sourceMappingURL=brenthouse.css.map */
